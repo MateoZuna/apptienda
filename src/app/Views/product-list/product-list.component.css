@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    font-family: "Montserrat", serif;;
+}
+
+.container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "Header Header Header"
+      "Products Products Products"
+      "Products Products Products"
+      "Products Products Products"
+      "Products Products Products"
+      "Footer Footer Footer";
+  }
+  
+  .Header {
+    grid-area: Header;
+    background-color: black;
+    color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; /* Alinea elementos en extremos */
+    padding: 0 20px; /* Espaciado horizontal */
+    position: relative;
+  }
+  
+  .Header h2 {
+    position: absolute;
+    left: 50%; /* Lleva al centro horizontal */
+    transform: translateX(-50%); /* Ajusta la posición para centrar */
+    margin: 0; /* Elimina márgenes */
+  }
+  
+  .Header i {
+    margin-top: 15px;
+    font-size: 24px;
+    color: white;
+    height: 85px;
+  }
+  
+
+  .Header i:hover{
+    font-size: 24px;
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+    color: rgb(255, 145, 0);
+  }
+  
+  .Header h2 {
+    margin: 0; /* Elimina márgenes */
+  }
+  
+  .Footer { 
+    grid-area: Footer; 
+    background-color: black;
+    color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+  }
+  
+  .Products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10px; /* Espaciado entre filas y columnas */
+    grid-auto-flow: row;
+    grid-template-areas:
+      "product_1 Product_2 product_3"
+      "product_4 product_5 product_6"
+      "product_7 product_8 product_9";
+    grid-area: Products;
+  }
+
+  @keyframes fadeSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Comienza desplazado hacia abajo */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Llega a su posición original */
+    }
+}
+
+.product {
+    opacity: 0; /* Empieza invisible */
+    transform: translateY(20px); /* Comienza desplazado hacia abajo */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.product.visible {
+    opacity: 1;
+    transform: translateY(0); /* Posición final */
+    animation: fadeSlide 0.4s ease;
+}
+
+  .Products img {
+    width: 175px; /* Ancho fijo */
+    height: 250px; /* Alto fijo */
+    object-fit: cover; /* Asegura que la imagen se recorte y no se deforme */
+    border-radius: 10px; /* Bordes redondeados */
+    margin: 10px 0; /* Espaciado con el título y botón */
+    display: block; /* Asegura que la imagen sea tratada como un bloque */
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto;
+  }
+  
+  .Products button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .Products button:hover {
+    background-color: #cc7a00;
+  }
+
+  .Products h3{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .product_1 { 
+    grid-area: product_1; 
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.356);
+  }
+  
+  .Product_2 { 
+    grid-area: Product_2; 
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.356);
+  }
+  
+  .product_3 { 
+    grid-area: product_3; 
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.356);
+  }
+  
+  .product_4 { 
+    grid-area: product_4; 
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.356);
+  }
+  
+  .product_5 { 
+    grid-area: product_5; 
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.356);
+  }
+  
+  .product_6 { 
+    grid-area: product_6;
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 20px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.356);
+  }
+  
+  .product_7 { 
+    grid-area: product_7; 
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.356);
+  }
+  
+  .product_8 { 
+    grid-area: product_8; 
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.356);
+  }
+  
+  .product_9 { 
+    grid-area: product_9; 
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.356);
+  }
+  
