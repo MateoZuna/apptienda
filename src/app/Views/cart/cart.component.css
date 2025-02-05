@@ -1,0 +1,112 @@
+/* Estilos generales */
+main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+  justify-content: center; /* Centra el contenido verticalmente */
+  min-height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+}
+
+/* Estilo del encabezado */
+header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center; /* Centra el título */
+}
+
+/* Estilo de los items del carrito */
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 600px; /* Establece un ancho máximo */
+  margin: 0 auto; /* Centra la lista */
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+  align-items: center; /* Centra el contenido de cada item */
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Estilo para la imagen del producto en miniatura */
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover; /* Asegura que la imagen mantenga la proporción */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Detalles del producto */
+.cart-item-details h2 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.cart-item-details p {
+  font-size: 1rem;
+  color: #777;
+}
+
+/* Botón eliminar */
+.remove-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: darkred;
+}
+
+/* Botón vaciar carrito */
+.clear-cart-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center; /* Centra el texto del botón */
+}
+
+.clear-cart-btn:hover {
+  background-color: #e67e22;
+}
+
+/* Estilo de cuando el carrito está vacío */
+.cart-empty p {
+  font-size: 1.2rem;
+  color: #999;
+  text-align: center; /* Centra el texto */
+}
+
+/* Botón de volver a la tienda */
+.back-to-products-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-align: center; /* Centra el texto del botón */
+}
+
+.back-to-products-btn:hover {
+  background-color: #2980b9;
+}

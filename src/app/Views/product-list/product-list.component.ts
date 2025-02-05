@@ -1,29 +1,24 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { IProduct } from '../../Models/product.mode'; 
+import { ProductItemComponent } from '../../Components/product-item/product-item.component'; 
+import { NgFor } from '@angular/common'; 
+import { ProductService } from '../../Services/product.service'; 
 
 @Component({
-  selector: 'app-product-list',
-  imports: [],
+  selector: 'app-products-list',
+  imports: [ProductItemComponent, NgFor], 
   templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css'
+  styleUrls: ['./product-list.component.css'],
+  standalone: true,
 })
-export class ProductListComponent {
-  ngAfterViewInit() {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
-        });
-      },
-      {
-        threshold: 0.1, // Un 10% visible para activar la animación
-      }
-    );
+export class ProductsListComponent {
+  private productService = inject(ProductService);
+  private router = inject(Router);
 
-    const productElements = document.querySelectorAll('.product');
-    productElements.forEach((el) => observer.observe(el));
+  listaProductos: IProduct[] = this.productService.getProducts();
+
+  goToCart() {
+    this.router.navigate(['/cart']);
   }
 }

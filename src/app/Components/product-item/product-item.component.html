@@ -1,0 +1,10 @@
+<div class="item-product" (click)="navigateToID()">
+  <div class="item-product-header">
+    <span class="product-id">{{ item.id }}</span>
+    <h3 class="product-title">{{ item.title }}</h3>
+  </div>
+  <div class="item-product-content">
+    <img [src]="item.imageUrl" alt="{{ item.title }}" />
+    <p class="product-price">${{ item.price }}</p>
+  </div>
+</div>

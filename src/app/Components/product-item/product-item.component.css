@@ -1,0 +1,95 @@
+/* Estilo para el contenedor de cada item de producto */
+.item-product {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* Muestra el cursor como puntero cuando se hace clic */
+  overflow: hidden; /* Asegura que la imagen no se desborde */
+}
+
+.item-product:hover {
+  transform: translateY(-5px); /* Eleva ligeramente el item al pasar el ratón */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra al pasar el ratón */
+}
+
+/* Estilo para el ID del producto */
+.item-product .product-id {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #007bff; /* Color azul para el ID */
+  margin-bottom: 10px;
+}
+
+/* Estilo para el título del producto */
+.item-product .product-title {
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+/* Estilo para el precio del producto */
+.item-product .product-price {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+/* Estilo para las imágenes de los productos */
+.item-product img {
+  width: 100%;  /* Asegura que la imagen ocupe el ancho completo del contenedor */
+  height: auto;  /* Mantiene la relación de aspecto de la imagen */
+  max-width: 100%; /* No excede el ancho del contenedor */
+  max-height: 300px; /* Limita la altura máxima a 300px */
+  object-fit: contain;  /* Asegura que la imagen se ajuste sin deformarse */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Media Query para pantallas pequeñas (<= 600px) */
+@media (max-width: 600px) {
+  .item-product {
+      padding: 15px;
+      margin: 8px 0;
+  }
+
+  .item-product .product-title {
+      font-size: 1.4rem;
+  }
+
+  .item-product .product-price {
+      font-size: 1rem;
+  }
+
+  /* Asegura que las imágenes sigan siendo proporcionales en pantallas pequeñas */
+  .item-product img {
+      max-height: 200px;  /* Ajusta la altura máxima para pantallas pequeñas */
+  }
+}
+
+/* Media Query para pantallas medianas (<= 1024px) */
+@media (max-width: 1024px) {
+  .item-product {
+      padding: 18px;
+      margin: 9px 0;
+  }
+
+  .item-product .product-title {
+      font-size: 1.5rem;
+  }
+
+  .item-product .product-price {
+      font-size: 1.1rem;
+  }
+
+  /* Asegura que las imágenes sigan siendo proporcionales en pantallas medianas */
+  .item-product img {
+      max-height: 250px;  /* Ajusta la altura máxima para pantallas medianas */
+  }
+}

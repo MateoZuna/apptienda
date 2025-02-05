@@ -1,0 +1,78 @@
+/* Estilo principal para el contenedor de detalles de error */
+.detail-book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+  }
+  
+  /* Estilo para el mensaje de error */
+  .item-book h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #d9534f;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para el botón de regresar */
+  button {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  /* Media Query para pantallas pequeñas (<= 600px) */
+  @media (max-width: 600px) {
+    .detail-book {
+      padding: 20px;
+      margin: 20px 10px;
+    }
+  
+    .item-book h2 {
+      font-size: 1.8rem;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  }
+  
+  /* Media Query para pantallas medianas (<= 1024px) */
+  @media (max-width: 1024px) {
+    .detail-book {
+      padding: 30px;
+      margin: 30px auto;
+    }
+  
+    .item-book h2 {
+      font-size: 2.2rem;
+    }
+  
+    button {
+      font-size: 1.1rem;
+      padding: 10px 22px;
+    }
+  }
+  

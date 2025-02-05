@@ -1,0 +1,10 @@
+<div class="detail-product">
+  <section class="item-product">
+    <p id="id">ID: {{ productSelected.id }}</p>
+    <h2>{{ productSelected.title }}</h2>
+    <p id="price">${{ productSelected.price }}</p>
+    <img [src]="productSelected?.imageUrl" alt="{{ productSelected?.title }}" class="product-image" />
+  </section>
+  <button (click)="gotoHome()">Regresar</button>
+  <button (click)="addToCart()">Añadir al carrito</button>
+</div>
