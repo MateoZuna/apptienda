@@ -12,12 +12,12 @@
     <ul>
       <li *ngFor="let item of cartItems">
         <div class="cart-item">
-          <!-- Imagen miniatura del producto -->
           <img [src]="item.imageUrl" alt="{{ item.title }}" class="cart-item-image" />
           
           <div class="cart-item-details">
             <h2>{{ item.title }}</h2>
-            <p>${{ item.price }}</p>
+            <p>${{ item.price | number:'1.2-2' }}</p> <!-- Aquí está la modificación -->
+            <input type="number" [value]="item.quantity" (change)="updateQuantity(item, $event)" min="1">
           </div>
           
           <button (click)="removeItem(item.id)" class="remove-btn">Eliminar</button>
@@ -25,8 +25,17 @@
       </li>
     </ul>
 
+    <div class="cart-total">
+      <h3>Total: ${{ total | number:'1.2-2' }}</h3> <!-- También aquí para el total -->
+    </div>
+
     <button (click)="clearCart()" class="clear-cart-btn" *ngIf="cartItems.length > 0">
       Vaciar carrito
+    </button>
+
+    <!-- Botón para generar la factura -->
+    <button (click)="generateInvoice()" class="generate-invoice-btn" *ngIf="cartItems.length > 0">
+      Generar Factura
     </button>
 
     <button (click)="gotoHome()" class="back-to-products-btn">Volver a la tienda</button>

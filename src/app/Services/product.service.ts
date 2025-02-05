@@ -77,4 +77,12 @@ export class ProductService {
   getProductById(id: number): IProduct | undefined {
     return this.listaProductos.find(product => product.id === id);
   }
+
+  addProduct(product: IProduct): void {
+    this.listaProductos.push(product);  // Añadir el nuevo producto
+  }
+
+  getNewProductId(): number {
+    return this.listaProductos.length ? Math.max(...this.listaProductos.map(p => p.id)) + 1 : 1;
+  }
 }

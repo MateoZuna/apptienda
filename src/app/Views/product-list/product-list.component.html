@@ -5,11 +5,17 @@
       <ul class="nav-links">
         <li>
           <button class="cart-button" (click)="goToCart()">🛒 Ver Carrito</button>
+          <button (click)="goToAddProduct()">Añadir Producto</button>
         </li>
       </ul>
     </nav>
   </div>
 </header>
+
+<section class="search-product">
+  <input [(ngModel)]="searchId" placeholder="Buscar por ID de producto" />
+  <button (click)="searchProduct()">Buscar</button>
+</section>
 
 <section class="list-products">
   <div class="product-grid">

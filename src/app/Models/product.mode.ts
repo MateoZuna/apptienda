@@ -3,5 +3,6 @@ export interface IProduct {
   title: string;
   price: number;
   imageUrl: string;
-  description?: string; // Agregar 'description' como propiedad opcional
+  description?: string;
+  quantity?: number; // Hacerlo opcional para evitar errores
 }

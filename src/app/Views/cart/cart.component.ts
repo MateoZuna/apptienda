@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IProduct } from '../../Models/product.mode';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { CartService } from '../../Services/cart.service';  // Importamos el servicio CartService
+import { CartService } from '../../Services/cart.service';
+import { InvoiceService } from '../../Services/invoice.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,22 +15,43 @@ import { CartService } from '../../Services/cart.service';  // Importamos el ser
 export class CartComponent {
   cartItems: IProduct[] = [];
 
-  constructor(private router: Router, private cartService: CartService) {
-    // Obtener los productos del carrito al cargar el componente
+  constructor(
+    private router: Router,
+    private cartService: CartService,
+    private invoiceService: InvoiceService
+  ) {
     this.cartItems = this.cartService.getCartItems();
   }
 
   removeItem(productId: number) {
-    this.cartItems = this.cartItems.filter(item => item.id !== productId);
-    this.cartService.updateCart(this.cartItems);  // Actualizamos el carrito después de eliminar un producto
+    this.cartService.removeItem(productId);
+    this.cartItems = this.cartService.getCartItems();
   }
 
   clearCart() {
+    this.cartService.clearCart();
     this.cartItems = [];
-    this.cartService.clearCart();  // Limpiar carrito en el servicio
   }
 
   gotoHome() {
     this.router.navigate(['/product-list']);
+  }
+
+  updateQuantity(item: IProduct, event: Event) {
+    const input = event.target as HTMLInputElement;
+    const quantity = Number(input.value);
+    if (quantity > 0) {
+      this.cartService.updateQuantity(item.id, quantity);
+      this.cartItems = this.cartService.getCartItems();
+    }
+  }
+
+  get total(): number {
+    return this.cartService.getTotal();
+  }
+
+  // Método para generar la factura en PDF
+  generateInvoice() {
+    this.invoiceService.generatePDFInvoice();  // Generar el PDF aquí
   }
 }
