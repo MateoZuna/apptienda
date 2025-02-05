@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { IProduct } from '../../Models/product.mode'; 
-import { ProductItemComponent } from '../../Components/product-item/product-item.component'; 
-import { NgFor } from '@angular/common'; 
-import { ProductService } from '../../Services/product.service'; 
+import { Router, RouterModule } from '@angular/router';  // Importa RouterModule aquí
+import { IProduct } from '../../Models/product.mode';
+import { ProductItemComponent } from '../../Components/product-item/product-item.component';
+import { NgFor } from '@angular/common';
+import { ProductService } from '../../Services/product.service';
 import { FormsModule } from '@angular/forms'; // Importa FormsModule
 
 @Component({
   selector: 'app-products-list',
-  imports: [ProductItemComponent, NgFor, FormsModule], // Agrega FormsModule aquí
+  imports: [ProductItemComponent, NgFor, FormsModule, RouterModule], // Agregar RouterModule aquí
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
   standalone: true,
@@ -28,7 +28,7 @@ export class ProductsListComponent {
   // Método para buscar un producto por ID
   searchProduct() {
     const foundProduct = this.listaProductos.find(product => product.id === Number(this.searchId));
-  
+
     if (foundProduct) {
       // Redirige a la ruta de detalle del producto
       this.router.navigate(['/product-details', foundProduct.id]);
@@ -41,5 +41,4 @@ export class ProductsListComponent {
   goToAddProduct() {
     this.router.navigate(['/add-product']);
   }
-  
 }

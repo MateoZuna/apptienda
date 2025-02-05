@@ -20,7 +20,9 @@
 <section class="list-products">
   <div class="product-grid">
     <div class="product-item" *ngFor="let item of listaProductos">
-      <app-product-item [item]="item"></app-product-item>
+      <a [routerLink]="['/product-details', item.id]">
+        <app-product-item [item]="item"></app-product-item>
+      </a>
     </div>
   </div>
 </section>
