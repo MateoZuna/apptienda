@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';  // Importa RouterModule aquí
 import { IProduct } from '../../Models/product.mode';
 import { ProductItemComponent } from '../../Components/product-item/product-item.component';

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  font-family: "Montserrat", serif;
+}
+
 /* Estilos generales */
 main {
   padding: 20px;
@@ -12,7 +18,7 @@ main {
 header h1 {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 20px;
   text-align: center; /* Centra el título */
 }
@@ -51,7 +57,7 @@ li {
 /* Detalles del producto */
 .cart-item-details h2 {
   font-size: 1.2rem;
-  color: #333;
+  color: #ffffff;
 }
 
 .cart-item-details p {
@@ -61,6 +67,7 @@ li {
 
 /* Botón eliminar */
 .remove-btn {
+  border-radius: 1rem;
   background-color: red;
   color: white;
   border: none;
@@ -74,6 +81,7 @@ li {
 
 /* Botón vaciar carrito */
 .clear-cart-btn {
+  border-radius: 1rem;
   display: block;
   width: 100%;
   padding: 10px;
@@ -98,7 +106,7 @@ li {
 
 /* Botón de volver a la tienda */
 .back-to-products-btn {
-  background-color: #3498db;
+  background-color: #3b3b3b;
   color: white;
   border: none;
   padding: 10px;
@@ -108,5 +116,21 @@ li {
 }
 
 .back-to-products-btn:hover {
-  background-color: #2980b9;
+  background-color: #ffffff;
+  color: black;
+}
+
+.generate-invoice-btn{
+  background-color: #3b3b3b;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-align: center; /* Centra el texto del botón */
+}
+
+.generate-invoice-btn:hover {
+  background-color: #ffffff;
+  color: black;
 }

@@ -5,7 +5,7 @@
   align-items: flex-start;
   background-color: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 2rem;
   padding: 20px;
   margin: 10px 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -22,12 +22,13 @@
 .item-product .product-id {
   font-size: 1rem;
   font-weight: bold;
-  color: #007bff; /* Color azul para el ID */
+  color: #333;
   margin-bottom: 10px;
 }
 
 /* Estilo para el título del producto */
 .item-product .product-title {
+  text-decoration: none;
   font-size: 1.6rem;
   color: #333;
   font-weight: 600;

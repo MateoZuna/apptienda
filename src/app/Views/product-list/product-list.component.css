@@ -1,135 +1,52 @@
-/* Contenedor principal de la lista de productos */
-.list-products {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  font-family: "Montserrat", serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
   background-color: #f4f4f4;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo de cada item de producto */
-.product-item {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 250px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.product-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Estilo general para el ProductItem */
-app-product-item {
-  display: block;
-  text-align: center;
-}
-
-/* Títulos de los productos */
-.product-item h3 {
-  font-size: 1.2rem;
-  font-weight: bold;
   color: #333;
-  margin-bottom: 10px;
 }
 
-/* Descripción de los productos */
-.product-item p {
-  font-size: 1rem;
-  color: #777;
-  margin-bottom: 15px;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Mejorar la visibilidad y presentación de imágenes si las hay */
-.product-item img {
-  width: 300px; /* Tamaño fijo de 300px */
-  height: 300px; /* Tamaño fijo de 300px */
-  object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-/* Media Query para pantallas pequeñas (<= 600px) */
-@media (max-width: 600px) {
-  .list-products {
-    padding: 10px;
-  }
-
-  .product-item {
-    width: 100%; /* Ocupa el 100% del ancho */
-    padding: 15px;
-  }
-
-  .product-item h3 {
-    font-size: 1rem;
-  }
-
-  .product-item p {
-    font-size: 0.9rem;
-  }
-
-  /* Asegurarse que las imágenes se mantengan fijas en 300px x 300px */
-  .product-item img {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-/* Media Query para pantallas medianas (<= 1024px) */
-@media (max-width: 1024px) {
-  .product-item {
-    width: 45%; /* Ajuste el ancho de los items */
-  }
-
-  /* Asegurarse que las imágenes se mantengan fijas en 300px x 300px */
-  .product-item img {
-    width: 300px;
-    height: 300px;
-  }
-}
-
+/* Header */
 .main-header {
-  background-color: #333;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.75) 100%);
   color: white;
   padding: 20px 0;
 }
-.container {
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .logo {
   font-size: 1.8rem;
+  font-weight: bold;
 }
+
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
+  align-items: center;
 }
+
 .nav-links a {
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
 }
-.main-footer {
-  background-color: #222;
-  color: white;
-  text-align: center;
-  padding: 15px 0;
-  margin-top: 20px;
-}
 
 .cart-button {
-  background-color: #ff9800;
+  background-color: #2e2e2e;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -140,5 +57,278 @@ app-product-item {
 }
 
 .cart-button:hover {
-  background-color: #e68900;
+  background-color: #ffffff;
+  color: black;
+}
+
+/* Lista de productos */
+.list-products {
+  padding: 20px;
+  background-color: rgba(196, 196, 196, 0.034);
+  border-radius: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-item {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.589);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade-in 0.5s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-item img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.product-item p {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+.main-footer {
+  background-color: #222;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .cart-button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .product-item {
+    padding: 15px;
+  }
+
+  .product-item h3 {
+    font-size: 1rem;
+  }
+
+  .product-item p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .add-product {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .product-item {
+    padding: 10px;
+  }
+
+  .product-item h3 {
+    font-size: 0.9rem;
+  }
+
+  .product-item p {
+    font-size: 0.8rem;
+  }
+}
+
+.add-product {
+  background-color: #333; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.add-product:hover {
+  background-color: #ffffff; /* Cambia el color de fondo al pasar el mouse */
+  color: black;
+}
+
+.add-product:active {
+  background-color: #ffffff; /* Cambia el color de fondo al hacer clic */
+}
+
+.add-product:focus {
+  outline: none; /* Elimina el contorno al hacer foco */
+  box-shadow: 0 0 0 2px rgba(72, 207, 173, 0.5); /* Añade un sombreado al hacer foco */
+}
+
+.searching-btn {
+  background-color: #333; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.searching-btn:hover {
+  background-color: #ffffff; /* Cambia el color de fondo al pasar el mouse */
+  color: black; /* Cambia el color del texto al pasar el mouse */
+}
+
+.searching-btn:active {
+  background-color: #ffffff; /* Cambia el color de fondo al hacer clic */
+}
+
+.searching-btn:focus {
+  outline: none; /* Elimina el contorno al hacer foco */
+  box-shadow: 0 0 0 2px rgba(72, 207, 173, 0.5); /* Añade un sombreado al hacer foco */
+}
+
+.searching {
+  width: 100%; /* Ancho completo */
+  max-width: 300px; /* Ancho máximo */
+  padding: 10px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de la fuente */
+  border: 2px solid #ccc; /* Borde con color gris */
+  border-radius: 5px; /* Bordes redondeados */
+  outline: none; /* Elimina el contorno al hacer foco */
+  transition: border-color 0.3s ease; /* Transición suave del color del borde */
+}
+
+.searching:focus {
+  border-color: #4CAF50; /* Cambia el color del borde al hacer foco */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Añade un sombreado al hacer foco */
+}
+
+.searching::placeholder {
+  color: #999; /* Color del texto de placeholder */
+}
+
+@media (max-width: 768px) {
+  .cart-button, .add-product {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-button, .add-product {
+    padding: 6px 10px;
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+}
+
+/* Animación de slide-up con fade */
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Clase que aplica la animación */
+.slide-up-fade-in {
+  animation: slideUpFadeIn 0.5s ease-out forwards;
+}
+
+/* Clase inicial para ocultar los elementos */
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
 }
